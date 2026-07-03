@@ -1,0 +1,11 @@
+{
+  "name": "mocha-demo",
+  "version": "1.0.0",
+  "description": "Simple Mocha Testing Example",
+  "scripts": {
+    "test": "mocha calculator.test.js"
+  },
+  "devDependencies": {
+    "mocha": "^11.0.0"
+  }
+}
