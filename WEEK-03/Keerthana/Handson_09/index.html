@@ -1,0 +1,253 @@
+<!--
+
+Accessibility Audit (Lighthouse)
+
+Initial Accessibility Score: 100 / 100
+
+Issues Found:
+No accessibility issues detected.
+
+-->
+
+<!--
+
+Step 135: Cross Browser Testing
+
+
+Browsers Tested:
+
+1. Google Chrome
+
+Result:
+- Layout working correctly
+- Navigation working
+- JavaScript functions working
+
+
+
+2. Mozilla Firefox
+
+Result:
+- No layout issues
+- Flexbox and grid working correctly
+
+
+
+3. Microsoft Edge
+
+Result:
+- No compatibility issues
+- Accessibility features working
+
+
+
+Conclusion:
+
+Student Portal is compatible with modern browsers.
+
+-->
+
+<!--
+
+Step 136: Browser Feature Support Check
+
+
+Feature Tested:
+
+CSS Flexbox gap property
+
+
+Website:
+
+caniuse.com
+
+
+Browser Support:
+
+Chrome:
+Supported
+
+
+Firefox:
+Supported
+
+
+Edge:
+Supported
+
+
+Safari:
+Supported
+
+
+Conclusion:
+
+Flexbox gap is supported in all modern browsers.
+
+-->
+<!--
+
+Step 137: CSS Variables Polyfill
+
+
+Feature:
+
+CSS Custom Properties (Variables)
+
+
+Polyfill Used:
+
+css-vars-ponyfill
+
+
+Purpose:
+
+Provides CSS variable support for older browsers
+that do not support CSS custom properties.
+
+
+Testing:
+
+Verified using browser DevTools.
+
+
+Result:
+
+CSS variables load correctly.
+
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>
+        Student Portal
+    </h1>
+    <button
+        id="menuButton"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+    </button>
+    <nav
+        id="navigationMenu"
+        aria-label="Main navigation">   
+        <a href="#"
+           aria-current="page">
+            Home
+        </a>
+        <a href="#">
+            Courses
+        </a>
+        <a href="#">
+            Profile
+        </a>
+    </nav>
+</header>
+<main>
+<section>
+    <h2>
+        Student Information
+    </h2>
+    <img
+        src="https://via.placeholder.com/200"
+        alt="Student Profile Picture">
+    <p>
+        Welcome to the Student Portal.
+    </p>
+</section>
+<section>
+    <h2>
+        Search Courses
+    </h2>
+    <label for="search">
+        Search Course
+    </label>
+    <input
+        type="text"
+        id="search"
+        placeholder="Search course">
+    <p
+        id="resultsCount"
+        role="status"
+        aria-live="polite">
+        2 courses found
+    </p>
+</section>
+<section>
+
+<h2>
+    Courses
+</h2>
+<div
+
+    class="course-card"
+    tabindex="0"
+    role="button"
+    aria-label="Enroll in Web Development course"
+    onclick="enrollCourse('Web Development')"
+    onkeydown="handleKey(event,'Web Development')">
+    <h3>
+        Web Development
+    </h3>
+    <p>
+        Credits: 4
+    </p>
+    <button
+        type="button">
+        Enroll
+    </button>
+</div>
+<div
+
+    class="course-card"
+
+    tabindex="0"
+
+    role="button"
+
+    aria-label="Enroll in Database Systems course"
+
+    onclick="enrollCourse('Database Systems')"
+
+    onkeydown="handleKey(event,'Database Systems')">
+    <h3>
+        Database Systems
+    </h3>
+    <p>
+        Credits: 3
+    </p>
+    <button
+        type="button">
+        Enroll
+    </button>
+</div>
+</section>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+
+
+<script>
+
+cssVars();
+
+
+</script>
+
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+
+</html>

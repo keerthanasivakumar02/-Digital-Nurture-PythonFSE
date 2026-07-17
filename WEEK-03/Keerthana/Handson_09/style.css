@@ -1,0 +1,191 @@
+/*
+Step 133 & 134: Colour Contrast Check
+
+
+Before:
+
+Text:
+#777777
+
+Background:
+#FFFFFF
+
+Contrast Ratio:
+4.48:1
+
+Result:
+Failed WCAG AA
+
+
+After:
+
+Text:
+#333333
+
+Background:
+#FFFFFF
+
+Contrast Ratio:
+12.63:1
+
+Result:
+Passed WCAG AA
+
+
+WCAG Requirement:
+
+Normal text >= 4.5:1
+Large text >= 3:1
+
+*/
+:root {
+
+    --primary-color: #1e3a8a;
+
+    --secondary-color: #2563eb;
+
+    --text-color: #333333;
+
+    --background-color: #ffffff;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+     background-color:var(--background-color);
+
+    color:var(--text-color);
+
+}
+
+header{
+
+   
+
+    background-color:var(--primary-color);
+
+    color:white;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+nav{
+
+    margin-top:15px;
+    background-color:var(--secondary-color);
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:0 15px;
+
+}
+
+main{
+
+    width:90%;
+
+    max-width:900px;
+
+    margin:30px auto;
+
+}
+
+section{
+
+    background:white;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    border-radius:8px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+
+}
+
+img{
+
+    width:200px;
+
+    display:block;
+
+    margin:15px auto;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:10px;
+
+    margin-top:10px;
+
+}
+
+.course-card{
+
+    border:1px solid #ddd;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border-radius:6px;
+
+}
+
+button{
+
+    margin-top:10px;
+
+    padding:10px 18px;
+
+    border:none;
+
+    background:#1e3a8a;
+
+    color:white;
+
+    cursor:pointer;
+
+    border-radius:5px;
+
+}
+
+button:hover{
+
+    background:#153075;
+
+}
+/* Step 132: Keyboard Focus Indicator */
+
+
+a:focus,
+button:focus,
+input:focus,
+.course-card:focus {
+
+    outline: 3px solid #2563eb;
+
+    outline-offset: 3px;
+
+}
