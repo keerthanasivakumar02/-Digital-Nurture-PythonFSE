@@ -1,0 +1,867 @@
+use college_nosql
+switched to db college_nosql
+use college_nosql db["feedback"].find()
+already on db college_nosql
+db.createCollection("feedback")
+{ ok: 1 }
+show collections
+feedback
+db.feedback.insertMany([
+{
+    student_id: 1,
+    course_code: "CS101",
+    semester: "2022-ODD",
+    rating: 5,
+    comments: "Excellent teaching. Would recommend.",
+    tags: ["challenging","well-structured","good-examples"],
+    submitted_at: new Date("2022-11-30T10:15:00Z"),
+    attachments: [
+        { filename: "notes.pdf", size_kb: 240 }
+    ]
+},
+{
+    student_id: 2,
+    course_code: "CS101",
+    semester: "2022-ODD",
+    rating: 4,
+    comments: "Very informative.",
+    tags: ["challenging","interactive"],
+    submitted_at: new Date("2022-11-25T11:00:00Z"),
+    attachments: [
+        { filename: "assignment.pdf", size_kb: 180 }
+    ]
+},
+{
+    student_id: 3,
+    course_code: "CS101",
+    semester: "2021-EVEN",
+    rating: 2,
+    comments: "Need more examples.",
+    tags: ["difficult","theory"],
+    submitted_at: new Date("2021-12-15T09:30:00Z"),
+    attachments: [
+        { filename: "feedback.docx", size_kb: 120 }
+    ]
+},
+{
+    student_id: 4,
+    course_code: "CS102",
+    semester: "2022-ODD",
+    rating: 5,
+    comments: "Excellent practical sessions.",
+    tags: ["hands-on","interesting"],
+    submitted_at: new Date("2022-11-28T13:20:00Z"),
+    attachments: [
+        { filename: "lab.pdf", size_kb: 200 }
+    ]
+},
+{
+    student_id: 5,
+    course_code: "CS102",
+    semester: "2022-EVEN",
+    rating: 3,
+    comments: "Average experience.",
+    tags: ["basic","easy"],
+    submitted_at: new Date("2023-04-18T12:10:00Z"),
+    attachments: [
+        { filename: "report.pdf", size_kb: 160 }
+    ]
+},
+{
+    student_id: 6,
+    course_code: "CS103",
+    semester: "2022-ODD",
+    rating: 1,
+    comments: "Course needs improvement.",
+    tags: ["boring","lengthy"],
+    submitted_at: new Date("2022-11-20T15:00:00Z"),
+    attachments: [
+        { filename: "review.pdf", size_kb: 140 }
+    ]
+},
+{
+    student_id: 7,
+    course_code: "CS104",
+    semester: "2022-EVEN",
+    rating: 4,
+    comments: "Good teaching style.",
+    tags: ["interactive","well-paced"],
+    submitted_at: new Date("2023-04-22T14:40:00Z"),
+    attachments: [
+        { filename: "notes.docx", size_kb: 210 }
+    ]
+},
+{
+    student_id: 8,
+    course_code: "CS105",
+    semester: "2022-ODD",
+    rating: 5,
+    comments: "Loved the course.",
+    tags: ["excellent","well-structured"],
+    submitted_at: new Date("2022-11-29T16:10:00Z"),
+    attachments: [
+        { filename: "summary.pdf", size_kb: 175 }
+    ]
+},
+{
+    student_id: 9,
+    course_code: "CS106",
+    semester: "2022-ODD",
+    rating: 2,
+    comments: "Needs better organization.",
+    tags: ["challenging","confusing"],
+    submitted_at: new Date("2022-11-26T10:45:00Z"),
+    attachments: [
+        { filename: "feedback.pdf", size_kb: 130 }
+    ]
+},
+{
+    student_id: 10,
+    course_code: "CS107",
+    semester: "2022-ODD",
+    rating: 4,
+    comments: "Interesting subject.",
+    tags: ["engaging","practical"],
+    submitted_at: new Date("2022-11-27T09:50:00Z")
+}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a5ef0068c9c93fb85ae26a7'),
+    '1': ObjectId('6a5ef0068c9c93fb85ae26a8'),
+    '2': ObjectId('6a5ef0068c9c93fb85ae26a9'),
+    '3': ObjectId('6a5ef0068c9c93fb85ae26aa'),
+    '4': ObjectId('6a5ef0068c9c93fb85ae26ab'),
+    '5': ObjectId('6a5ef0068c9c93fb85ae26ac'),
+    '6': ObjectId('6a5ef0068c9c93fb85ae26ad'),
+    '7': ObjectId('6a5ef0068c9c93fb85ae26ae'),
+    '8': ObjectId('6a5ef0068c9c93fb85ae26af'),
+    '9': ObjectId('6a5ef0068c9c93fb85ae26b0')
+  }
+}
+db.feedback.countDocuments()
+10
+db.feedback.find().pretty()
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26a7'),
+  student_id: 1,
+  course_code: 'CS101',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Excellent teaching. Would recommend.',
+  tags: [
+    'challenging',
+    'well-structured',
+    'good-examples'
+  ],
+  submitted_at: 2022-11-30T10:15:00.000Z,
+  attachments: [
+    {
+      filename: 'notes.pdf',
+      size_kb: 240
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26a8'),
+  student_id: 2,
+  course_code: 'CS101',
+  semester: '2022-ODD',
+  rating: 4,
+  comments: 'Very informative.',
+  tags: [
+    'challenging',
+    'interactive'
+  ],
+  submitted_at: 2022-11-25T11:00:00.000Z,
+  attachments: [
+    {
+      filename: 'assignment.pdf',
+      size_kb: 180
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26a9'),
+  student_id: 3,
+  course_code: 'CS101',
+  semester: '2021-EVEN',
+  rating: 2,
+  comments: 'Need more examples.',
+  tags: [
+    'difficult',
+    'theory'
+  ],
+  submitted_at: 2021-12-15T09:30:00.000Z,
+  attachments: [
+    {
+      filename: 'feedback.docx',
+      size_kb: 120
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26aa'),
+  student_id: 4,
+  course_code: 'CS102',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Excellent practical sessions.',
+  tags: [
+    'hands-on',
+    'interesting'
+  ],
+  submitted_at: 2022-11-28T13:20:00.000Z,
+  attachments: [
+    {
+      filename: 'lab.pdf',
+      size_kb: 200
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26ab'),
+  student_id: 5,
+  course_code: 'CS102',
+  semester: '2022-EVEN',
+  rating: 3,
+  comments: 'Average experience.',
+  tags: [
+    'basic',
+    'easy'
+  ],
+  submitted_at: 2023-04-18T12:10:00.000Z,
+  attachments: [
+    {
+      filename: 'report.pdf',
+      size_kb: 160
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26ac'),
+  student_id: 6,
+  course_code: 'CS103',
+  semester: '2022-ODD',
+  rating: 1,
+  comments: 'Course needs improvement.',
+  tags: [
+    'boring',
+    'lengthy'
+  ],
+  submitted_at: 2022-11-20T15:00:00.000Z,
+  attachments: [
+    {
+      filename: 'review.pdf',
+      size_kb: 140
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26ad'),
+  student_id: 7,
+  course_code: 'CS104',
+  semester: '2022-EVEN',
+  rating: 4,
+  comments: 'Good teaching style.',
+  tags: [
+    'interactive',
+    'well-paced'
+  ],
+  submitted_at: 2023-04-22T14:40:00.000Z,
+  attachments: [
+    {
+      filename: 'notes.docx',
+      size_kb: 210
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26ae'),
+  student_id: 8,
+  course_code: 'CS105',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Loved the course.',
+  tags: [
+    'excellent',
+    'well-structured'
+  ],
+  submitted_at: 2022-11-29T16:10:00.000Z,
+  attachments: [
+    {
+      filename: 'summary.pdf',
+      size_kb: 175
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26af'),
+  student_id: 9,
+  course_code: 'CS106',
+  semester: '2022-ODD',
+  rating: 2,
+  comments: 'Needs better organization.',
+  tags: [
+    'challenging',
+    'confusing'
+  ],
+  submitted_at: 2022-11-26T10:45:00.000Z,
+  attachments: [
+    {
+      filename: 'feedback.pdf',
+      size_kb: 130
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26b0'),
+  student_id: 10,
+  course_code: 'CS107',
+  semester: '2022-ODD',
+  rating: 4,
+  comments: 'Interesting subject.',
+  tags: [
+    'engaging',
+    'practical'
+  ],
+  submitted_at: 2022-11-27T09:50:00.000Z
+}
+db.feedback.find({ rating: 5 })
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26a7'),
+  student_id: 1,
+  course_code: 'CS101',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Excellent teaching. Would recommend.',
+  tags: [
+    'challenging',
+    'well-structured',
+    'good-examples'
+  ],
+  submitted_at: 2022-11-30T10:15:00.000Z,
+  attachments: [
+    {
+      filename: 'notes.pdf',
+      size_kb: 240
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26aa'),
+  student_id: 4,
+  course_code: 'CS102',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Excellent practical sessions.',
+  tags: [
+    'hands-on',
+    'interesting'
+  ],
+  submitted_at: 2022-11-28T13:20:00.000Z,
+  attachments: [
+    {
+      filename: 'lab.pdf',
+      size_kb: 200
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26ae'),
+  student_id: 8,
+  course_code: 'CS105',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Loved the course.',
+  tags: [
+    'excellent',
+    'well-structured'
+  ],
+  submitted_at: 2022-11-29T16:10:00.000Z,
+  attachments: [
+    {
+      filename: 'summary.pdf',
+      size_kb: 175
+    }
+  ]
+}
+db.feedback.find({ rating: 5 })
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26a7'),
+  student_id: 1,
+  course_code: 'CS101',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Excellent teaching. Would recommend.',
+  tags: [
+    'challenging',
+    'well-structured',
+    'good-examples'
+  ],
+  submitted_at: 2022-11-30T10:15:00.000Z,
+  attachments: [
+    {
+      filename: 'notes.pdf',
+      size_kb: 240
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26aa'),
+  student_id: 4,
+  course_code: 'CS102',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Excellent practical sessions.',
+  tags: [
+    'hands-on',
+    'interesting'
+  ],
+  submitted_at: 2022-11-28T13:20:00.000Z,
+  attachments: [
+    {
+      filename: 'lab.pdf',
+      size_kb: 200
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26ae'),
+  student_id: 8,
+  course_code: 'CS105',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Loved the course.',
+  tags: [
+    'excellent',
+    'well-structured'
+  ],
+  submitted_at: 2022-11-29T16:10:00.000Z,
+  attachments: [
+    {
+      filename: 'summary.pdf',
+      size_kb: 175
+    }
+  ]
+}
+db.feedback.find({
+    course_code: "CS101",
+    tags: "challenging"
+})
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26a7'),
+  student_id: 1,
+  course_code: 'CS101',
+  semester: '2022-ODD',
+  rating: 5,
+  comments: 'Excellent teaching. Would recommend.',
+  tags: [
+    'challenging',
+    'well-structured',
+    'good-examples'
+  ],
+  submitted_at: 2022-11-30T10:15:00.000Z,
+  attachments: [
+    {
+      filename: 'notes.pdf',
+      size_kb: 240
+    }
+  ]
+}
+{
+  _id: ObjectId('6a5ef0068c9c93fb85ae26a8'),
+  student_id: 2,
+  course_code: 'CS101',
+  semester: '2022-ODD',
+  rating: 4,
+  comments: 'Very informative.',
+  tags: [
+    'challenging',
+    'interactive'
+  ],
+  submitted_at: 2022-11-25T11:00:00.000Z,
+  attachments: [
+    {
+      filename: 'assignment.pdf',
+      size_kb: 180
+    }
+  ]
+}
+db.feedback.find(
+    {},
+    {
+        student_id: 1,
+        course_code: 1,
+        rating: 1,
+        _id: 0
+    }
+)
+{
+  student_id: 1,
+  course_code: 'CS101',
+  rating: 5
+}
+{
+  student_id: 2,
+  course_code: 'CS101',
+  rating: 4
+}
+{
+  student_id: 3,
+  course_code: 'CS101',
+  rating: 2
+}
+{
+  student_id: 4,
+  course_code: 'CS102',
+  rating: 5
+}
+{
+  student_id: 5,
+  course_code: 'CS102',
+  rating: 3
+}
+{
+  student_id: 6,
+  course_code: 'CS103',
+  rating: 1
+}
+{
+  student_id: 7,
+  course_code: 'CS104',
+  rating: 4
+}
+{
+  student_id: 8,
+  course_code: 'CS105',
+  rating: 5
+}
+{
+  student_id: 9,
+  course_code: 'CS106',
+  rating: 2
+}
+{
+  student_id: 10,
+  course_code: 'CS107',
+  rating: 4
+}
+db.feedback.updateMany(
+    { rating: { $lt: 3 } },
+    {
+        $set: {
+            needs_review: true
+        }
+    }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+db.feedback.find(
+    { needs_review: true },
+    {
+        tags: 1,
+        _id: 0
+    }
+)
+{
+  tags: [
+    'difficult',
+    'theory'
+  ]
+}
+{
+  tags: [
+    'boring',
+    'lengthy'
+  ]
+}
+{
+  tags: [
+    'challenging',
+    'confusing'
+  ]
+}
+db.feedback.deleteMany({
+    semester: "2021-EVEN"
+})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.feedback.find({
+    semester: "2021-EVEN"
+})
+db.feedback.aggregate([
+  {
+    $match: {
+      semester: "2022-ODD"
+    }
+  },
+  {
+    $group: {
+      _id: "$course_code",
+      avg_rating: { $avg: "$rating" },
+      total_feedback: { $sum: 1 }
+    }
+  },
+  {
+    $sort: {
+      avg_rating: -1
+    }
+  }
+])
+{
+  _id: 'CS105',
+  avg_rating: 5,
+  total_feedback: 1
+}
+{
+  _id: 'CS102',
+  avg_rating: 5,
+  total_feedback: 1
+}
+{
+  _id: 'CS101',
+  avg_rating: 4.5,
+  total_feedback: 2
+}
+{
+  _id: 'CS107',
+  avg_rating: 4,
+  total_feedback: 1
+}
+{
+  _id: 'CS106',
+  avg_rating: 2,
+  total_feedback: 1
+}
+{
+  _id: 'CS103',
+  avg_rating: 1,
+  total_feedback: 1
+}
+db.feedback.aggregate([
+  {
+    $match: {
+      semester: "2022-ODD"
+    }
+  },
+  {
+    $group: {
+      _id: "$course_code",
+      avg_rating: { $avg: "$rating" },
+      total_feedback: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      course_code: "$_id",
+      average_rating: {
+        $round: ["$avg_rating", 1]
+      },
+      total_feedback: 1
+    }
+  },
+  {
+    $sort: {
+      average_rating: -1
+    }
+  }
+])
+{
+  total_feedback: 1,
+  course_code: 'CS105',
+  average_rating: 5
+}
+{
+  total_feedback: 1,
+  course_code: 'CS102',
+  average_rating: 5
+}
+{
+  total_feedback: 2,
+  course_code: 'CS101',
+  average_rating: 4.5
+}
+{
+  total_feedback: 1,
+  course_code: 'CS107',
+  average_rating: 4
+}
+{
+  total_feedback: 1,
+  course_code: 'CS106',
+  average_rating: 2
+}
+{
+  total_feedback: 1,
+  course_code: 'CS103',
+  average_rating: 1
+}
+db.feedback.aggregate([
+  {
+    $unwind: "$tags"
+  },
+  {
+    $group: {
+      _id: "$tags",
+      count: {
+        $sum: 1
+      }
+    }
+  },
+  {
+    $sort: {
+      count: -1
+    }
+  }
+])
+{
+  _id: 'challenging',
+  count: 3
+}
+{
+  _id: 'interactive',
+  count: 2
+}
+{
+  _id: 'well-structured',
+  count: 2
+}
+{
+  _id: 'interesting',
+  count: 1
+}
+{
+  _id: 'well-paced',
+  count: 1
+}
+{
+  _id: 'lengthy',
+  count: 1
+}
+{
+  _id: 'confusing',
+  count: 1
+}
+{
+  _id: 'engaging',
+  count: 1
+}
+{
+  _id: 'hands-on',
+  count: 1
+}
+{
+  _id: 'boring',
+  count: 1
+}
+{
+  _id: 'good-examples',
+  count: 1
+}
+{
+  _id: 'basic',
+  count: 1
+}
+{
+  _id: 'practical',
+  count: 1
+}
+{
+  _id: 'easy',
+  count: 1
+}
+{
+  _id: 'excellent',
+  count: 1
+}
+db.feedback.createIndex({
+  course_code: 1
+})
+course_code_1
+db.feedback.find({
+  course_code: "CS101"
+}).explain("executionStats")
+      executionTimeMillisEstimate: 28,
+      works: 3,
+      advanced: 2,
+      needTime: 0,
+      needYield: 0,
+      saveState: 1,
+      restoreState: 1,
+      isEOF: 1,
+      docsExamined: 2,
+      alreadyHasObj: 0,
+      inputStage: {
+        stage: 'IXSCAN',
+        nReturned: 2,
+        executionTimeMillisEstimate: 28,
+        works: 3,
+        advanced: 2,
+        needTime: 0,
+        needYield: 0,
+        saveState: 1,
+        restoreState: 1,
+        isEOF: 1,
+        keyPattern: {
+          course_code: 1
+        },
+        indexName: 'course_code_1',
+        isMultiKey: false,
+        multiKeyPaths: {
+          course_code: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          course_code: [
+            '["CS101", "CS101"]'
+          ]
+        },
+        keysExamined: 2,
+        seeks: 1,
+        dupsTested: 0,
+        dupsDropped: 0
+      }
+    }
+  },
+  command: {
+    find: 'feedback',
+    filter: {
+      course_code: 'CS101'
+    },
+    '$db': 'college_nosql'
+  },
+  serverInfo: {
+    host: 'DESKTOP-MOHHBTU',
+    port: 27017,
+    version: '8.0.3',
+    gitVersion: '89d97f2744a2b9851ddfb51bdf22f687562d9b06'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted',
+    internalQueryPlannerIgnoreIndexWithCollationForRegex: 1
+  },
+  ok: 1
+}
+college_nosql
